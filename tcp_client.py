@@ -1,6 +1,8 @@
-# tcp_client class
+# tcp client class
+
 # imports
 import socket as Socket
+
 # class definition
 class TcpClient:
 
@@ -17,6 +19,9 @@ class TcpClient:
 		recievedMessage = self.socket.recv(1024)
 		decodedMessage = recievedMessage.decode("ascii")
 		return decodedMessage
+
+	def write(self, message):
+		self.socket.send(message)
 
 
 
