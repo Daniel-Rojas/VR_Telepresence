@@ -1,6 +1,7 @@
-# stepper driver
+# stepper driver class
 
 # imports
+import time
 import GPIO as gpio
 
 # class
@@ -20,6 +21,6 @@ class StepperDriver:
 
 	def step(self):
 		gpio.output(self.step, 1)
-		sleep(0.001)
+		time.sleep(0.001)
 		gpio.output(self.step, 0)
-		sleep(0.001)
+		time.sleep(0.001)
