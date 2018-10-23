@@ -9,8 +9,9 @@ import adafruit_lsm9ds1 as gyro
 class Sensor:
 
 	def __init__(self):
-		self.i2c = busio.I2C(board.SCL, board.SDA)
+		i2c = busio.I2C(board.SCL, board.SDA)
 		self.sensor = gyro.LSM9DS1_I2C(i2c)
+		print("Sensor: Created")
 
 	def readGyroscope(self):
 		gyroX, gyroY, gyroZ = self.sensor.gyro

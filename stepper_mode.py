@@ -10,12 +10,19 @@ class StepperMode:
 		self.pin0 = pin0
 		self.pin1 = pin1
 		self.pin2 = pin2
+		print("StepperMode: Created")
+		self.setupPins()
 
 	def setupPins(self):
 		gpio.setmode(gpio.BCM)
 		gpio.setup(self.pin0, gpio.OUT)
 		gpio.setup(self.pin1, gpio.OUT)
 		gpio.setup(self.pin2, gpio.OUT)
+		# default to full step resolution
+		gpio.output(self.pin0, 0)
+		gpio.output(self.pin0, 0)
+		gpio.output(self.pin0, 0)		
+		print("StepperMode: Setup Complete")
 
 	def setResolution(self, resolution):
 		if resolution == 1:
@@ -45,5 +52,7 @@ class StepperMode:
 		else:
 			gpio.output(self.pin0, 0)
 			gpio.output(self.pin0, 0)
-			gpio.output(self.pin0, 0)			
+			gpio.output(self.pin0, 0)
+
+		print("StepperMode: Resolution Set")			
 
